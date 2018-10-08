@@ -128,20 +128,38 @@ include_once COMMON.'class.common.video.inc';
 //https://www.facebook.com/Rk.romankhan.903/videos/1001166663388200/
 //https://www.facebook.com/toidicode/videos/543922712725727/
 ?>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoidicode%2Fvideos%2F543922712725727%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
 
-		<div> <?php //1st cmnt post box div > ?>
-			<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FRk.romankhan.903%2Fvideos%2F1001166663388200%2F&show_text=0&width=560" width="560" height="420" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+
+<?php /* problem 
+ <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoidicode%2Fvideos%2F543922712725727%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FRk.romankhan.903%2Fvideos%2F1001166663388200%2F&show_text=0&width=560" width="560" height="420" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+*/
+?>
+
+		<div id = comment-box> <?php //1st cmnt post box div > ?>
+			
 		 	<form method="post" class="panel panel-info" >
 		 		<input type='text' name ="txtvideo" value="<?php echo $Video2 ; ?>" placeholder="<?php echo $Video2 ; ?>"" style="display : none" />
-		 		<div class="panel-heading">Add a public comment</div>
-		 		<div class="panel-body">
+
+		 		<div id = "comment"class="panel-heading" style="display: block;">Add a public comment</div>
+		 		<div id ="txtcomment" class="panel-body">
 					<textarea class="form-control" name="txtComment" 
 					value="<?php if(isset($_GET['edit'])) echo $getROW->getVideo();  ?>" >
 					</textarea>
 					<input type="hidden" name="CreatorID" value="<?php if(isset($_GET['edit'])) echo $getROW->getCreatorID();  ?>" />
 					</br>
-					<input class="btn btn-success btn-lg"  type="submit" id="savebutton"  name="save" value="Submit">
+					<input class="btn btn-success btn-sm"  type="submit" id="savebutton"  name="save" value="Comment">
+				</div>
+
+
+				<div id = "reply" class= "panel-heading" style="display: none;" >Add a public reply</div>
+				<div id =reply_txt style="display: none;" class="panel-body">
+					<textarea class="form-control" name="txtComment" 
+					value="<?php if(isset($_GET['edit'])) echo $getROW->getVideo();  ?>" >
+					</textarea>
+					<input type="hidden" name="CreatorID" value="<?php if(isset($_GET['edit'])) echo $getROW->getCreatorID();  ?>" />
+					</br>
+					<input class="btn btn-success btn-sm"  type="submit" id="replysavebutton"  name="save" value="Reply">
 				</div>
 			</form>
 		</div> <?php //1st cmnt post box end ?>
@@ -149,7 +167,25 @@ include_once COMMON.'class.common.video.inc';
 
 
 
-
+<script>
+function myFunction() {
+    var x = document.getElementById("reply");
+    var y=document.getElementById("reply_txt");
+    var c1=document.getElementById("comment");
+    var c2=document.getElementById("txtcomment");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display="block";
+        c1.style.display = "none";
+        c2.style.display="none";
+    } else {
+        x.style.display = "none";
+        y.style.display = "none";
+        c1.style.display = "block";
+        c2.style.display="block";
+    }
+}
+</script>
 
 
 
@@ -204,13 +240,14 @@ include_once COMMON.'class.common.video.inc';
 					<?php echo $Video->getComment();
 					//calss.common.forum.inc er last a ase  
 					?>
+					<button type="button" onclick="myFunction()" class="btn btn-link">Reply</button> 
 				</div>
 
 				<div style ="position: relative; left: 50px; width:500px;font-weight:bold ;"  class="panel-heading">Md Rakibul Hasan Molla</div> 
-									<div style ="position: relative; left: 50px; width:970px;"  class="panel panel-danger">Thank you  </div> 
+									<div style ="position: relative; left: 50px; width:970px;"  class="panel panel-danger">Thank you <button type="button" onclick="myFunction()" class="btn btn-link">Reply</button> </div> 
 										
 									<div style ="position: relative; left: 100px; width:500px;font-weight:bold ;"  class="panel-heading">Tamim Iqbal </div> 
-									<div style ="position: relative; left: 100px; width:970px;"  class="panel panel-danger">This is a test reply  </div>
+									<div style ="position: relative; left: 100px; width:970px;"  class="panel panel-danger">This is a test reply  <button type="button" onclick="myFunction()" class="btn btn-link">Reply</button></div>
 		
 						<?php		
 
@@ -236,3 +273,6 @@ include_once COMMON.'class.common.video.inc';
 </div>  <?php //panel body er div ?>
 
 </div> <?php //last panel er div ?> 
+
+
+

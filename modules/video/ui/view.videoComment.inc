@@ -12,7 +12,7 @@ include_once COMMON.'class.common.video.inc';
 			<div class="well well-sm">
       <!-- Portfolio Item Heading -->
       <h7 class="my-4">Video Viewer
-        <small>-Khulna University</small>
+        <small>-Khulna University </small>
       </h7>
   </div>
 

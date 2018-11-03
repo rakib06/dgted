@@ -130,11 +130,10 @@ include_once COMMON.'class.common.video.inc';
 ?>
 
 
-<?php /* problem 
- <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoidicode%2Fvideos%2F543922712725727%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FRk.romankhan.903%2Fvideos%2F1001166663388200%2F&show_text=0&width=560" width="560" height="420" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-*/
-?>
+
+
+
+
 
 		<div id = comment-box> <?php //1st cmnt post box div > ?>
 			
@@ -148,7 +147,7 @@ include_once COMMON.'class.common.video.inc';
 					</textarea>
 					<input type="hidden" name="CreatorID" value="<?php if(isset($_GET['edit'])) echo $getROW->getCreatorID();  ?>" />
 					</br>
-					<input class="btn btn-success btn-sm"  type="submit" id="savebutton"  name="save" value="Comment">
+					<input class="btn btn-success btn-sm"  type="submit" id="save"  name="save" value="Comment">
 				</div>
 
 
@@ -159,7 +158,7 @@ include_once COMMON.'class.common.video.inc';
 					</textarea>
 					<input type="hidden" name="CreatorID" value="<?php if(isset($_GET['edit'])) echo $getROW->getCreatorID();  ?>" />
 					</br>
-					<input class="btn btn-success btn-sm"  type="submit" id="replysavebutton"  name="save" value="Reply">
+					<input class="btn btn-success btn-sm"  type="submit" id="replysavebutton"  name="save-reply" value="Reply">
 				</div>
 			</form>
 		</div> <?php //1st cmnt post box end ?>
